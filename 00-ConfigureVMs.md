@@ -228,7 +228,7 @@ sudo firewall-cmd --add-port=6784/udp --permanent
 On Kubemaster Generate Join Token
 ```
 kubeadm token create --print-join-command
-sudo firewall-cmd reload
+sudo firewall-cmd --reload
 ```
 
 Join Worker Node
