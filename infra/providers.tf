@@ -4,7 +4,7 @@ terraform {
   cloud {
     organization = "learn-azure-dev"
     workspaces {
-        name = "kubernetes-demo"
+      name = "kubernetes-demo"
     }
   }
 
@@ -21,7 +21,7 @@ terraform {
     }
 
     tls = {
-      source = "hashicorp/tls"
+      source  = "hashicorp/tls"
       version = "~>4.0"
     }
 
@@ -29,7 +29,7 @@ terraform {
 }
 
 provider "azurerm" {
-  features { 
+  features {
     resource_group {
       prevent_deletion_if_contains_resources = false
     }

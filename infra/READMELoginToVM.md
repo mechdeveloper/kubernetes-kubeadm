@@ -19,3 +19,8 @@ Use SSH to connect to the virutal machine
 ```
 ssh -i id_rsa azureuser@<public_ip_address>
 ```
+
+Check Linux Version
+```
+hostnamectl
+```
