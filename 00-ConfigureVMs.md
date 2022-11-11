@@ -54,6 +54,7 @@ sudo firewall-cmd --add-port=10257/tcp --permanent
 
 Worker Node
 ```
+sudo firewall-cmd --add-port=6443/tcp --permanent
 sudo firewall-cmd --add-port=10250/tcp --permanent
 sudo firewall-cmd --add-port=30000-32767/tcp --permanent
 ```
@@ -227,9 +228,12 @@ sudo firewall-cmd --add-port=6784/udp --permanent
 On Kubemaster Generate Join Token
 ```
 kubeadm token create --print-join-command
+sudo firewall-cmd reload
 ```
 
 Join Worker Node
 ```
+sudo firewall-cmd reload
+
 sudo kubeadm join 10.0.0.4:6443 --token ggv6hp.6j2nzkffpnrlvpke --discovery-token-ca-cert-hash sha256:1ddf6801a38f60d4c92e2e33aec9b2c98be4c991c968c7f3a4ce1d9110b539da
 ```
