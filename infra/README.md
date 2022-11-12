@@ -65,13 +65,4 @@ Azure CLI to check Resource Group
 az group show --name <resource_group_name>
 ```
 
-Plan to remove/destroy infra resources
-```
-terraform plan -destroy -out main.destroy.tfplan
-```
-
-Destroy infra
-```
-terraform apply main.destroy.tfplan
-```
 
