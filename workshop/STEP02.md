@@ -12,12 +12,12 @@ Restrict read/write access to the owner of key file
 chmod 600 id_rsa
 ```
 
-Get the virtual machine public IP address of master
+Get the Public IP address of kubemaster virtual machine 
 ```
 terraform output public_ip_address_kubemaster
 ```
 
-Get the virtual machine Public IP address of master
+Get the Public IP address of kubeworker virtual machine
 ```
 terraform output public_ip_address_kubeworker
 ```
