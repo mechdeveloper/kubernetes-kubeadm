@@ -1,4 +1,4 @@
-# Step 2: Login to Virtual Machines on Azure
+# Step 2: Login to Virtual Machines 
 
 
 Run `terraform output` to get the SSH private key and save it to a file.
