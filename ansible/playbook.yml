@@ -1,0 +1,52 @@
+########################################################################
+#                             playbook.yml
+#------------------------------------------------------------------
+# This playbook executes hostnamectl on the inventory hosts.
+#
+#    
+#------------------------------------------------------------------
+#
+# Change History              
+# Date        Name                  Version   Description
+# 2022/11/14  Ashish Singh Baghel   00.00     Started new code
+#
+########################################################################
+
+---
+- name: Play 1 - Check private ipv4 adress 
+  hosts: kubemaster kubeworker
+  tasks:
+    - name: print ipv4 address 
+      debug:
+        msg: "IPv4 address: {{ ansible_default_ipv4.address }}"
+
+- name: Play 2 - Apply firewall rules on kubemaster
+  hosts: kubemaster
+  tasks:
+    - name: firewalld rules
+      ansible.posix.firewalld:
+        port: "{{ item }}"
+        state: enabled
+        permanent: true
+        immediate: true
+      with_items:
+        - 6443/tcp
+        - 2379-2380/tcp
+        - 10250/tcp
+        - 10259/tcp
+        - 10257/tcp
+      become: true
+
+- name: Play 3 - Apply firewall rules on kubeworker
+  hosts: kubeworker
+  tasks:
+    - name: firewalld rules
+      ansible.posix.firewalld:
+        port: "{{ item }}"
+        state: enabled
+        permanent: true
+        immediate: true
+      with_items:
+        - 10250/tcp
+        - 30000-32767/tcp
+      become: true

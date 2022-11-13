@@ -56,7 +56,6 @@ sudo firewall-cmd --add-port=10257/tcp --permanent
 
 Worker Node
 ```
-sudo firewall-cmd --add-port=6443/tcp --permanent
 sudo firewall-cmd --add-port=10250/tcp --permanent
 sudo firewall-cmd --add-port=30000-32767/tcp --permanent
 ```

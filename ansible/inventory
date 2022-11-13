@@ -1,0 +1,2 @@
+kubemaster ansible_host=108.143.68.200 ansible_user=azureuser
+kubeworker ansible_host=108.143.68.201 ansible_user=azureuser
