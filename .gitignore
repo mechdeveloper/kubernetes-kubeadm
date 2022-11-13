@@ -1,2 +1,4 @@
 .terraform
+.key
+collections
 id_rsa
