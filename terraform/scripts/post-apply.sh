@@ -1,6 +1,6 @@
 #!/bin/bash
 
-keypath="/workspaces/kubernetes-demo/infra/.key"
+keypath="/workspaces/kubernetes-demo/terraform/.key"
 keyname="id_rsa"
 keyfile="$keypath/$keyname"
 echo "Key File: $keyfile"
