@@ -14,11 +14,13 @@
 
 ---
 - name: Play 1 - Check private ipv4 adress 
-  hosts: kubemaster kubeworker
+  hosts: all
   tasks:
     - name: print ipv4 address 
       debug:
         msg: "IPv4 address: {{ ansible_default_ipv4.address }}"
+    - name: ping test
+      ping:
 
 - name: Play 2 - Apply firewall rules on kubemaster
   hosts: kubemaster

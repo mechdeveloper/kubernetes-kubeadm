@@ -40,7 +40,7 @@ resource "azurerm_public_ip" "my_k8s_public_ip_kubeworker" {
 
 # Create Network Security Group and rule
 resource "azurerm_network_security_group" "my_k8s_nsg_kubemaster" {
-  name                = "k8sKubeMasterNetworkSecurityGroup"
+  name                = "k8sKubeMasterNSG"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
@@ -61,7 +61,7 @@ resource "azurerm_network_security_group" "my_k8s_nsg_kubemaster" {
 }
 
 resource "azurerm_network_security_group" "my_k8s_nsg_kubeworker" {
-  name                = "k8sKubeWorkerNetworkSecurityGroup"
+  name                = "k8sKubeWorkerNSG"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
@@ -131,7 +131,7 @@ resource "azurerm_linux_virtual_machine" "my_k8s_vm_kubemaster" {
   location              = azurerm_resource_group.rg.location
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.my_k8s_nic_kubemaster.id]
-  size                  = "Standard_D4s_v3"
+  size                  = "Standard_B1ms"
 
   os_disk {
     name                 = "kubeMasterOsDisk"
@@ -161,7 +161,7 @@ resource "azurerm_linux_virtual_machine" "my_k8s_vm_kubeworker" {
   location              = azurerm_resource_group.rg.location
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.my_k8s_nic_kubeworker.id]
-  size                  = "Standard_D4s_v3"
+  size                  = "Standard_B1ms"
 
   os_disk {
     name                 = "kubeWorkerOsDisk"
